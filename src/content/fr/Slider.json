@@ -1,0 +1,41 @@
+{
+    "1": {
+        "title": "Services de fret",
+        "subtitle": "Services de fret intégrés",
+        "text": "Nous proposons des solutions complètes pour rationaliser votre chaîne logistique. De la constitution et du démontage des palettes au chargement et au déchargement des avions, en passant par l'entreposage, le dédouanement et la coordination du transport, notre équipe dédiée veille à ce que votre fret soit acheminé de manière efficace, sécurisée et ponctuelle."
+    },
+    "2": {
+        "title": "E-commerce",
+        "subtitle": "Solutions logistiques pour l'E-commerce",
+        "text": "Nous fournissons des services logistiques rapides, fiables et flexibles, adaptés au secteur du commerce électronique. De l'exécution efficace des commandes et du stockage sécurisé à la livraison du dernier kilomètre et au suivi en temps réel, nous aidons votre entreprise en ligne à atteindre des clients dans le monde entier."
+    },
+    "3": {
+        "title": "Services de rampe",
+        "subtitle": "Nettoyage spécialisé d'aéronefs",
+        "text": "Le nettoyage industriel est un processus fondamental pour maintenir l'hygiène et la propreté à l'intérieur  mais aussi à l'extérieur de l'entrepôt. Grâce à son expertise en matière de nettoyage, RBoss garantit la sécurité des travailleurs  et veille au respect des normes applicables en matière de santé et de sécurité."
+    },
+    "4": {
+        "title": "Transport de l'équipage",
+        "subtitle": "Services de transport fiables pour les équipages",
+        "text": "Nous assurons le transport sûr, ponctuel et confortable de votre équipage. Nos chauffeurs professionnels et nos véhicules bien entretenus garantissent des transferts fluides entre les aéroports, les hôtels et les bases — permettant ainsi à votre équipe de rester concentrée et prête pour chaque vol."
+    },
+    "5": {
+        "title": "Nettoyage des installations",
+        "subtitle": "Solutions de nettoyage des installations",
+        "text": "Le nettoyage est un processus fondamental pour maintenir l'hygiène et la propreté à l'intérieur mais aussi à l'extérieur des entrepôts, hôtels, bureaux, etc. Grâce à son expertise en matière de nettoyage, RBoss garantit la sécurité des clients et des travailleurs, et veille au respect des normes applicables en matière de santé et de sécurité."
+    },
+    "6": {
+        "title": "Services aux passagers",
+        "subtitle": "Services aux passagers",
+        "text": "Fort de son expérience, de ses collaborations solides et de ses partenariats de confiance, RBoss Group fournit également des services dédiés aux passagers — allant de la manutention des bagages à la gestion des enregistrements."
+    },
+    "7": {
+        "title": "Plus de services",
+        "subtitle": "Besoin d'une solution personnalisée ?",
+        "text": "Chez RBoss Group, notre flexibilité et notre expertise nous permettent d'aller au-delà de notre offre de base, en proposant des solutions personnalisées et des services supplémentaires conçus pour répondre aux besoins en constante évolution de nos clients."
+    },
+    "trusted_s" : {
+        "title": "Reconnu par",
+        "footer": "et plus encore..."
+    }
+}

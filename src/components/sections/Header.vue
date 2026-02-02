@@ -1,0 +1,178 @@
+<script setup lang="ts">
+import { useLanguageSwitcher } from "@/composables/useLanguageSwitcher";
+import VueSVG from "@/components/VueSVG.vue";
+import { useBreakpoint } from "@/composables/useBreakpoints";
+import { useBurgerMenuStore } from "@/stores/useBurgerMenuStore";
+import { useRouter } from "vue-router";
+
+const { isMobile } = useBreakpoint();
+const { setLanguage, currentLanguage } = useLanguageSwitcher();
+const burgerStore = useBurgerMenuStore();
+
+const switchLanguage = (value: string) => {
+  setLanguage((currentLanguage.value = value));
+  burgerStore.languageMenuOpen = false;
+};
+
+const router = useRouter();
+function goToContact() {
+  router.push({ path: "/", hash: "#contact" }).then(() => {
+    const el = document.querySelector("#contact");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  });
+}
+function goToContactMobile() {
+  goToContact();
+  burgerStore.closeMenu();
+}
+</script>
+
+<template>
+  <header class="header" :class="isMobile ? 'is-mobile' : 'full-w'">
+    <div class="header__content">
+      <nav class="nav-desktop">
+        <figure class="header__logo">
+          <VueSVG src="/svg/rbossgroup.svg" />
+        </figure>
+        <router-link :to="{ path: '/', hash: '#solutions' }" class="nav-link">Solutions</router-link>
+        <router-link :to="{ path: '/', hash: '#company' }" class="nav-link">Company</router-link>
+        <router-link :to="{ path: '/', hash: '#about' }" class="nav-link">About us</router-link>
+        <div class="menu-lang">
+          <button class="btn-lang" @click="burgerStore.toggleLanguageMenu" :class="burgerStore.languageMenuOpen ? 'active' : ''">
+            {{ currentLanguage === "en" ? "EN" : "FR" }}
+            <VueSVG src="/svg/chevron-down.svg" />
+          </button>
+          <ul :class="burgerStore.languageMenuOpen ? 'active' : ''">
+            <li><button @click="switchLanguage('en')">English</button></li>
+            <li><button @click="switchLanguage('fr')">Français</button></li>
+          </ul>
+        </div>
+      </nav>
+      <button class="btn-contact" @click="goToContact">Contact us</button>
+
+      <nav class="nav-mobile">
+        <figure class="mr-30">
+          <VueSVG src="/svg/rbossgroup.svg" />
+        </figure>
+      </nav>
+
+      <button class="btn-burger" title="menu" name="menu" @click="burgerStore.toggleMenu">
+        <VueSVG src="/svg/burger.svg" />
+      </button>
+    </div>
+
+    <Teleport to=".modal">
+      <div class="burger-menu" :class="burgerStore.isOpen ? 'active' : ''">
+        <button class="btn-close" @click="burgerStore.closeMenu" title="close-menu">
+          <VueSVG src="/svg/closeX.svg" />
+        </button>
+
+        <router-link :to="{ path: '/', hash: '#solutions' }" class="nav-link nav-link--mobile" @click="burgerStore.closeMenu">Solutions</router-link>
+        <router-link :to="{ path: '/', hash: '#company' }" class="nav-link nav-link--mobile" @click="burgerStore.closeMenu">Company</router-link>
+        <router-link :to="{ path: '/', hash: '#about' }" class="nav-link nav-link--mobile" @click="burgerStore.closeMenu">About us</router-link>
+
+        <div class="menu-lang menu-lang--mobile">
+          <button class="btn-lang" @click="burgerStore.toggleLanguageMenu" :class="burgerStore.languageMenuOpen ? 'active' : ''">
+            <VueSVG src="/svg/chevron-down.svg" />
+            {{ currentLanguage === "en" ? "EN" : "FR" }}
+          </button>
+          <ul :class="burgerStore.languageMenuOpen ? 'active' : ''">
+            <li><button @click="switchLanguage('en')">English</button></li>
+            <li><button @click="switchLanguage('fr')">Français</button></li>
+          </ul>
+        </div>
+
+        <button class="btn-contact btn-contact--mobile" @click="goToContactMobile">Contact us</button>
+      </div>
+    </Teleport>
+  </header>
+</template>
+
+<style scoped lang="scss">
+.header {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  margin-inline: auto;
+
+  &__logo {
+    width: 100%;
+    margin-top: -10px;
+    margin-left: 0;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @apply pt-43 lg:px-30;
+
+    nav {
+      @apply flex items-center gap-21 text-20;
+    }
+  }
+
+  .btn-burger {
+    display: none;
+    color: var(--text-tertiary);
+  }
+
+  .nav-mobile {
+    display: none;
+  }
+
+  &.is-mobile {
+    .btn-contact {
+      display: none;
+    }
+
+    .btn-burger {
+      display: block;
+    }
+
+    .nav-desktop {
+      display: none;
+    }
+
+    .nav-mobile {
+      display: block;
+    }
+  }
+}
+
+.burger-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 20px;
+  min-height: 100vh;
+  opacity: 0;
+  transform: translateY(100vh);
+  transition: opacity 0.5s ease, transform 0.3s ease;
+  z-index: 1000;
+  color: var(--text-tertiary);
+  @apply px-20 md:px-60;
+
+  &.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .btn-close {
+    color: var(--text-tertiary);
+    transform: scale(1.6);
+    padding-block: 40px;
+  }
+}
+
+:global(body.menu-open) {
+  overflow: hidden;
+}
+</style>

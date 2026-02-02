@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=block");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=fallback");
+
+@layer base {
+  :root {
+    //////////
+    //colors//
+    //////////
+
+    --bg-body: #fff;
+
+    --bg-primary: #212121;
+    --bg-secondary: #000;
+    --bg-button: #eeeeee;
+
+    --bg-overlay: rgba(0, 0, 0, 0.5);
+
+    --text-primary: #000;
+    --text-secondary: #a6a6a6;
+    --text-tertiary: #fff;
+
+    --blue-color: #4b93ff;
+    --red-color: #ff1129;
+    --green-color: #276902;
+    --gray-color: #c3c3c3;
+
+    ////////
+    //typo//
+    ////////
+
+    font-family: "Poppins", "sans serif";
+
+    h1,
+    .title-1 {
+      white-space: pre-line;
+      &:not(.reset) {
+        line-height: 1.07;
+        @apply text-neg-5-36 md:text-neg-5-50 2xl:text-neg-5-70;
+      }
+    }
+
+    h2,
+    .title-2 {
+      white-space: pre-line;
+      &:not(.reset) {
+        line-height: 1.35;
+        @apply text-neg-5-28 md:text-neg-5-36 2xl:text-neg-5-55 font-light;
+      }
+    }
+
+    h3,
+    .title-3 {
+      &:not(.reset) {
+        white-space: pre-line;
+        line-height: 1;
+        @apply text-neg-5-24 lg:text-neg-5-32 mb-25;
+      }
+    }
+
+    h4,
+    .title-4 {
+      white-space: pre-line;
+      &:not(.reset) {
+        line-height: 1.45;
+        @apply text-neg-5-16 lg:text-neg-5-20 font-light text-text-secondary;
+      }
+    }
+    h5,
+    .title-5 {
+      white-space: pre-line;
+      &:not(.reset) {
+        line-height: 1.45;
+        @apply text-neg-5-24 lg:text-neg-5-32 text-text-primary;
+      }
+    }
+
+    p,
+    li {
+      white-space: pre-line;
+      &:not(.reset) {
+        line-height: 1.5;
+        @apply text-neg-5-14 font-light;
+      }
+    }
+  }
+}
